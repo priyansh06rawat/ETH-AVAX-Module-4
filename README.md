@@ -12,7 +12,7 @@ To support their ambitious plans, Degen Gaming has selected the Avalanche blockc
 
 **Redeeming Tokens**: Users can redeem their tokens for other items or services.
 ## Installing
-Copy the file `DegenToken.sol` from this repo and paste it in your Remix IDE.
+Copy the file [DegenToken.sol](DegenToken.sol) from this repo and paste it in your Remix IDE.
 # Author
 Priyansh [@priyansh06rawat](https://github.com/priyansh06rawat)
 
