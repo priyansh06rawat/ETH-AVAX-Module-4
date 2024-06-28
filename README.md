@@ -11,3 +11,9 @@ Burning: Any token holder can burn their tokens.
 Transferring Tokens: Users can transfer tokens to others.
 
 Redeeming Tokens: Users can redeem their tokens for other items or services.
+# Author
+Priyansh [@priyansh06rawat](https://github.com/priyansh06rawat)
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
