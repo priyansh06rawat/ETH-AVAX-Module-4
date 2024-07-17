@@ -6,7 +6,9 @@ import "@openzeppelin/contracts/access/Ownable.sol";
 
 contract DegenToken is ERC20, Ownable {
 
-    event TokensRedeemed(address indexed user, uint amount);
+    event TokensRedeemed(address indexed user, uint amount, string itemName);
+
+    mapping(string => uint256) public itemPrices;
 
     constructor() ERC20("Degen", "DGN") Ownable(msg.sender) {}
 
@@ -23,9 +25,18 @@ contract DegenToken is ERC20, Ownable {
         assert(success);  
     }
 
-    function redeemToken(uint _amount) public {
-        require(balanceOf(msg.sender) >= _amount, "Insufficient token balance to redeem");
-        _burn(msg.sender, _amount);
-        emit TokensRedeemed(msg.sender, _amount);
-    } 
+    // Function to set the price of an item
+    function setItemPrice(string memory itemName, uint256 price) public onlyOwner {
+        itemPrices[itemName] = price;
+    }
+
+    // Function to redeem an item
+    function redeemItem(string memory itemName) public {
+        uint256 price = itemPrices[itemName];
+        require(price > 0, "Item does not exist");
+        require(balanceOf(msg.sender) >= price, "Insufficient token balance to redeem");
+
+        _burn(msg.sender, price);
+        emit TokensRedeemed(msg.sender, price, itemName);
+    }
 }
